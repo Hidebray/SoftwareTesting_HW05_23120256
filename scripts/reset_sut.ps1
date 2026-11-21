@@ -20,18 +20,34 @@ Write-Host "============================================================" -Foreg
 Write-Host "  HW05 SUT Reset & Seed Procedure (EShop Backend Port $Port)" -ForegroundColor Cyan
 Write-Host "============================================================" -ForegroundColor Cyan
 
-# Step 1: Stop existing process listening on port 3000 (if any)
-$existingConns = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
-if ($existingConns) {
-    $pids = $existingConns | Select-Object -ExpandProperty OwningProcess -Unique
-    foreach ($procId in $pids) {
+# Step 1: Stop ANY existing eshop-sut backend node.exe or listener on port 3000
+$pidsToKill = New-Object System.Collections.Generic.HashSet[int]
+
+# 1a. Match by TCP listener (netstat handles both IPv4 0.0.0.0:3000 and IPv6 [::]:3000 reliably)
+$netstatLines = netstat -ano | Select-String -Pattern ":${Port}\s+.*LISTENING\s+(\d+)$"
+foreach ($m in $netstatLines) {
+    $pidVal = [int](($m.Line -split "\s+")[-1])
+    if ($pidVal -gt 0) { [void]$pidsToKill.Add($pidVal) }
+}
+
+# 1b. Match any node.exe running server.js (catches processes during startup/shutdown)
+$nodeProcs = Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" -ErrorAction SilentlyContinue |
+    Where-Object { $_.CommandLine -match "server\.js" }
+foreach ($np in $nodeProcs) {
+    [void]$pidsToKill.Add([int]$np.ProcessId)
+}
+
+if ($pidsToKill.Count -gt 0) {
+    foreach ($procId in $pidsToKill) {
         $proc = Get-Process -Id $procId -ErrorAction SilentlyContinue
-        Write-Host "[1/4] Stopping existing process on port ${Port}: $($proc.ProcessName) (PID=$procId)..." -ForegroundColor Yellow
-        Stop-Process -Id $procId -Force -ErrorAction SilentlyContinue
+        if ($proc) {
+            Write-Host "[1/4] Stopping existing backend process: $($proc.ProcessName) (PID=$procId)..." -ForegroundColor Yellow
+            Stop-Process -Id $procId -Force -ErrorAction SilentlyContinue
+        }
     }
-    Start-Sleep -Seconds 1
+    Start-Sleep -Seconds 2
 } else {
-    Write-Host "[1/4] No existing process listening on port $Port." -ForegroundColor Gray
+    Write-Host "[1/4] No existing backend process found on port $Port." -ForegroundColor Gray
 }
 
 # Step 2: Start fresh node server.js (triggers database.js initDatabase() -> resets DB & lockouts)
@@ -41,6 +57,9 @@ $backendProc = Start-Process -FilePath "node" `
     -WorkingDirectory $BackendDir `
     -PassThru `
     -WindowStyle Minimized
+
+# Wait briefly so SQLite initDatabase() completes all DROP/CREATE/SEED statements cleanly
+Start-Sleep -Seconds 1
 
 # Step 3: Poll health endpoint until HTTP 200 (max 15 seconds)
 Write-Host "[3/4] Waiting for $HealthUrl to become ready (PID=$($backendProc.Id))..." -ForegroundColor Yellow
