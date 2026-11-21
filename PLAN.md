@@ -59,14 +59,17 @@ Homework/Week05/
 ├── requirement/
 │   └── 2026.HW05.Performance Testing_En.pdf
 ├── skills/
-│   └── k6-performance-tester/                 # [XÂY TRƯỚC Ở PHASE 1] Agent Skill tái sử dụng
-│       ├── SKILL.md                           # Quy trình 5 bước có Human-Review Gates (v1.0 → v1.1)
+│   └── performance-tester/                    # [XÂY TRƯỚC Ở PHASE 1] Universal Tool-Agnostic Agent Skill
+│       ├── SKILL.md                           # Core 6-Phase tool-agnostic protocol (v1.0 → v1.1)
+│       ├── references/                        # Progressive disclosure (workload, audit rubric, k6/JMeter adapters)
 │       ├── scripts/
-│       │   ├── parse_k6_raw.py                # Tính ground-truth metrics từ raw k6 CSV (chống AI đọc sai)
-│       │   └── csv_to_jtl.py                  # Chuyển đổi 1:1 raw k6 CSV sang định dạng .jtl tương thích
-│       └── templates/
-│           ├── report_view1_trace.js          # Template handleSummary View 1 (Trace / Check Detail HTML)
-│           └── report_view3_aggregate.js      # Template handleSummary View 3 (Aggregate Percentile HTML)
+│       │   ├── analyze_perf_logs.py           # Universal ground-truth analyzer (k6 CSV + JMeter JTL + Generic)
+│       │   └── convert_k6_to_jtl.py           # Chuyển đổi 1:1 raw k6 CSV sang định dạng .jtl tương thích
+│       └── resources/
+│           ├── report_template.md             # Mẫu báo cáo tool-agnostic
+│           └── k6/
+│               ├── report_view1_trace.js      # Template handleSummary View 1 (Trace / Check Detail HTML)
+│               └── report_view3_aggregate.js  # Template handleSummary View 3 (Aggregate Percentile HTML)
 ├── data/                                      # Dữ liệu CSV Data-Driven
 │   ├── users.csv                              # 30 tài khoản admin/staff + 3 tài khoản test lockout
 │   ├── coupons.csv                            # Cấu hình coupon (prefix, type fixed/percent, discount, min_order)
