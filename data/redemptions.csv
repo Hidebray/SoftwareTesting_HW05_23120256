@@ -1,0 +1,17 @@
+case_id,total_amount,expected_outcome,note
+RED-01,1200000,valid,Standard order above all min_order_amount thresholds
+RED-02,1500000,valid,Mid-tier order
+RED-03,1800000,valid,Mid-tier order
+RED-04,2000000,valid,High-value order
+RED-05,2250000,valid,High-value order
+RED-06,2500000,valid,High-value order
+RED-07,2800000,valid,High-value order
+RED-08,3000000,valid,Premium order
+RED-09,3500000,valid,Premium order
+RED-10,4000000,valid,Premium order
+RED-11,4500000,valid,Flagship order
+RED-12,5000000,valid,Flagship order
+RED-13,300000,boundary_equal,Exact min_order_amount 300k - exposes server.js:379 strict > bug
+RED-14,500000,boundary_equal,Exact min_order_amount 500k - exposes server.js:379 strict > bug
+RED-15,100000,below_min,Below min_order_amount - expects HTTP 400 rejection
+

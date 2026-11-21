@@ -1,0 +1,14 @@
+# Node / Temp files
+node_modules/
+scratch/
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+

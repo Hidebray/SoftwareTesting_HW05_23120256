@@ -1,0 +1,17 @@
+code_prefix,type,discount_value,min_order_amount,expired_at,max_uses_per_user,expected_bug_note
+FIXED20K,fixed,20000,200000,2099-12-31,5,Valid fixed coupon
+FIXED50K,fixed,50000,300000,2099-12-31,5,Valid fixed coupon
+FIXED75K,fixed,75000,400000,2099-12-31,5,Valid fixed coupon
+FIXED100K,fixed,100000,500000,2099-12-31,5,Valid fixed coupon
+FIXED150K,fixed,150000,600000,2099-12-31,5,Valid fixed coupon
+FIXED200K,fixed,200000,800000,2099-12-31,5,Valid fixed coupon
+FLASH30K,fixed,30000,250000,2099-12-31,5,Valid fixed flash sale
+FLASH60K,fixed,60000,350000,2099-12-31,5,Valid fixed flash sale
+FLASH120K,fixed,120000,700000,2099-12-31,5,Valid fixed flash sale
+VIP80K,fixed,80000,450000,2099-12-31,5,Valid fixed VIP tier
+VIP180K,fixed,180000,900000,2099-12-31,5,Valid fixed VIP tier
+MEGA250K,fixed,250000,1000000,2099-12-31,5,Valid fixed mega order
+PCT10,percent,10,300000,2099-12-31,5,Exposes server.js:399 negative percent discount bug
+PCT15,percent,15,400000,2099-12-31,5,Exposes server.js:399 negative percent discount bug
+PCT20,percent,20,500000,2099-12-31,5,Exposes server.js:399 negative percent discount bug
+
