@@ -1,4 +1,23 @@
-﻿commit 92434718bea950df50b92d111a7f9f37560d5f85
+﻿commit 13b0db6c9a2e2a6c77269b1acfdb65401691a9ac
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 18:01:00 +0700
+
+    docs(ai): update AI Critique paragraph with student's final text and re-export AI_Critical.pdf
+
+ AI/AI_Critical.md  |   2 +-
+ AI/AI_Critical.pdf | Bin 74580 -> 64566 bytes
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 9e91ce5b481e345e0d04be42a024d3763abd8e30
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 17:44:02 +0700
+
+    chore(git): export full git-commit-log.txt
+
+ git-commit-log.txt | 203 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 203 insertions(+)
+
+commit 92434718bea950df50b92d111a7f9f37560d5f85
 Author: Hidebray <daihiep10092005@gmail.com>
 Date:   2026-11-22 17:44:01 +0700
 
