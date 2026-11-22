@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>23120256 — HW05 Load Test Report (View 1: Trace &amp; Check Detail)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; padding: 24px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; color: #f8fafc; }
+  h2 { font-size: 16px; margin: 24px 0 10px; color: #93c5fd; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .meta { font-size: 13px; color: #94a3b8; margin-bottom: 18px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px; }
+  .card .lbl { font-size: 12px; color: #94a3b8; }
+  .card .val { font-size: 22px; font-weight: 700; margin-top: 4px; color: #f8fafc; }
+  table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; font-size: 13px; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid #334155; text-align: left; }
+  th { background: #0b1220; color: #cbd5e1; font-weight: 600; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .pass { background: #064e3b; color: #6ee7b7; }
+  .fail { background: #7f1d1d; color: #fca5a5; }
+  .bar-bg { width: 110px; height: 8px; background: #334155; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .bar-fill { height: 100%; background: #10b981; }
+  .bar-fill.warn { background: #f59e0b; }
+  .bar-fill.err { background: #ef4444; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>23120256 — HW05 Load Test Report (View 1: Trace &amp; Check Detail)</h1>
+  <div class="meta">Scenario: <b>Load Test (0 -&gt; 20 VUs, 2m hold)</b> &bull; Workflow: <b>Coupon Campaign, Discount Redemption &amp; Order Monitoring</b> &bull; Generated: 2026-11-22T09:13:46.327Z &bull; View Type: <b>View 1 (Per-Group &amp; Assertion Trace)</b></div>
+
+  <div class="cards">
+    <div class="card"><div class="lbl">Total HTTP Requests</div><div class="val">14814</div></div>
+    <div class="card"><div class="lbl">Completed Iterations</div><div class="val">1675</div></div>
+    <div class="card"><div class="lbl">Throughput (RPS)</div><div class="val">81.50 /s</div></div>
+    <div class="card"><div class="lbl">HTTP p95 Latency</div><div class="val">16.48 ms</div></div>
+    <div class="card"><div class="lbl">Check Pass Rate</div><div class="val">98.79%</div></div>
+    <div class="card"><div class="lbl">Unexpected Error Rate</div><div class="val">0.00%</div></div>
+  </div>
+
+  <h2>1. Per-Group Assertion &amp; Check Trace</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Group</th>
+        <th>Assertion Check</th>
+        <th class="num">Passed</th>
+        <th class="num">Failed</th>
+        <th class="num">Pass Rate</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td><code>01_Auth_Heavy</code></td>
+          <td>login: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>01_Auth_Heavy</code></td>
+          <td>login: returns JWT token</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>01_Auth_Heavy</code></td>
+          <td>users/me: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>01_Auth_Heavy</code></td>
+          <td>users/me: email matches authenticated user</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>02_Read_Heavy</code></td>
+          <td>coupons: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>02_Read_Heavy</code></td>
+          <td>coupons: returns non-empty array</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>02_Read_Heavy</code></td>
+          <td>admin/orders: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>02_Read_Heavy</code></td>
+          <td>admin/orders: returns joined order rows</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>create-coupon: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>create-coupon: returns new coupon id</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>apply-coupon (valid): status is 200</td>
+          <td class="num">1414</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>apply-coupon (valid): discount is positive &amp; final &lt; total [SUT BUG on percent]</td>
+          <td class="num">1127</td>
+          <td class="num">287</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill err" style="width:79.7%"></span></span>79.70%</td>
+          <td><span class="badge fail">FAIL</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>coupon-usage: status is 200</td>
+          <td class="num">1414</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>coupon-usage: message confirms recorded</td>
+          <td class="num">1414</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>delete-coupon: status is 200</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>apply-coupon (below min): properly rejected with 400</td>
+          <td class="num">234</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr><tr>
+          <td><code>03_Transactional</code></td>
+          <td>apply-coupon (exact min boundary): accepted with 200 [SUT BUG: strict &gt;]</td>
+          <td class="num">0</td>
+          <td class="num">27</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill err" style="width:0.0%"></span></span>0.00%</td>
+          <td><span class="badge fail">FAIL</span></td>
+        </tr><tr>
+          <td><code>04_Verification</code></td>
+          <td>verify-revoked: deleted coupon returns 404</td>
+          <td class="num">1675</td>
+          <td class="num">0</td>
+          <td class="num"><span class="bar-bg"><span class="bar-fill " style="width:100.0%"></span></span>100.00%</td>
+          <td><span class="badge pass">PASS</span></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Thresholds Gate Evaluation</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Threshold Rule</th><th>Result</th></tr></thead>
+    <tbody>
+      
+        <tr>
+          <td><code>grp_transactional_duration</code></td>
+          <td><code>p(95)&lt;600</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+        <tr>
+          <td><code>grp_read_duration</code></td>
+          <td><code>p(95)&lt;400</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+        <tr>
+          <td><code>grp_auth_duration</code></td>
+          <td><code>p(95)&lt;400</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+        <tr>
+          <td><code>http_req_failed</code></td>
+          <td><code>rate&lt;0.02</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+        <tr>
+          <td><code>http_req_duration</code></td>
+          <td><code>p(95)&lt;500</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+        <tr>
+          <td><code>http_req_duration</code></td>
+          <td><code>p(99)&lt;1000</code></td>
+          <td><span class="badge pass">PASSED</span></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+  <h2>3. Timing &amp; Custom Diagnostic Counters</h2>
+  <table>
+    <thead><tr><th>Metric</th><th class="num">Value</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>http_req_duration</code> (avg / p95 / max)</td><td class="num">5.95 / 16.48 / 307.53 ms</td><td>Pure HTTP request latency (excludes think-time)</td></tr>
+      <tr><td><code>iteration_duration</code> (avg / p95 / max)</td><td class="num">1811.53 / 2209.83 / 2673.51 ms</td><td>Full end-to-end user journey (includes think-time)</td></tr>
+      <tr><td><code>sut_bug_percent_negative_discount</code></td><td class="num">287 (1.58/s)</td><td>Custom diagnostic counter</td></tr><tr><td><code>sut_bug_min_order_strict_gt</code></td><td class="num">27 (0.15/s)</td><td>Custom diagnostic counter</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

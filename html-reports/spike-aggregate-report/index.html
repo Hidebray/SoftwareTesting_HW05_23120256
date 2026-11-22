@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>23120256 — HW05 Spike Test Report (View 3: Aggregate Percentile Matrix)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; margin: 0; padding: 24px; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; color: #0f172a; }
+  h2 { font-size: 16px; margin: 24px 0 10px; color: #1d4ed8; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+  .meta { font-size: 13px; color: #475569; margin-bottom: 18px; }
+  .kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+  .box { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 14px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+  .box .k { font-size: 12px; color: #64748b; }
+  .box .v { font-size: 22px; font-weight: 700; margin-top: 4px; color: #0f172a; }
+  table { width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; font-size: 13px; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+  th { background: #1e293b; color: #f8fafc; font-weight: 600; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .p95 { font-weight: 700; color: #b45309; }
+  .chart { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 16px; }
+  .bar-row { display: grid; grid-template-columns: 230px 1fr 90px; align-items: center; gap: 12px; margin: 8px 0; font-size: 12px; }
+  .track { background: #e2e8f0; height: 14px; border-radius: 7px; position: relative; overflow: hidden; }
+  .fill-p95 { background: #f59e0b; height: 100%; position: absolute; left: 0; top: 0; border-radius: 7px; }
+  .fill-p50 { background: #2563eb; height: 100%; position: absolute; left: 0; top: 0; border-radius: 7px; }
+  .legend { font-size: 12px; color: #475569; margin-bottom: 10px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>23120256 — HW05 Spike Test Report (View 3: Aggregate Percentile Matrix)</h1>
+  <div class="meta">Scenario: <b>Spike Test (10 -&gt; 180 VUs in 10s, hold 45s, recover 10 VUs)</b> &bull; Workflow: <b>Coupon Campaign, Discount Redemption &amp; Order Monitoring</b> &bull; Generated: 2026-11-22T09:01:02.490Z &bull; View Type: <b>View 3 (Aggregate Percentile Distribution)</b></div>
+
+  <div class="kpi">
+    <div class="box"><div class="k">Total Samples (HTTP Reqs)</div><div class="v">40445</div></div>
+    <div class="box"><div class="k">Aggregate Throughput</div><div class="v">252.69 req/s</div></div>
+    <div class="box"><div class="k">Unexpected Error Rate</div><div class="v">0.00%</div></div>
+    <div class="box"><div class="k">Total Data Received</div><div class="v">58.78 MB</div></div>
+  </div>
+
+  <h2>1. Aggregate Latency Distribution Matrix (ms)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric / Endpoint / Group</th>
+        <th class="num">Min</th>
+        <th class="num">Average</th>
+        <th class="num">Median (p50)</th>
+        <th class="num">90% Line</th>
+        <th class="num">95% Line</th>
+        <th class="num">99% / Tail</th>
+        <th class="num">Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td><code>http_req_duration</code></td>
+          <td class="num">0.00</td>
+          <td class="num">217.13</td>
+          <td class="num">200.37</td>
+          <td class="num">471.02</td>
+          <td class="num p95">532.45</td>
+          <td class="num">984.08</td>
+          <td class="num">984.08</td>
+        </tr>
+      
+        <tr>
+          <td><code>grp_auth_heavy</code></td>
+          <td class="num">0.00</td>
+          <td class="num">209.64</td>
+          <td class="num">194.66</td>
+          <td class="num">461.44</td>
+          <td class="num p95">513.29</td>
+          <td class="num">932.58</td>
+          <td class="num">932.58</td>
+        </tr>
+      
+        <tr>
+          <td><code>grp_read_heavy</code></td>
+          <td class="num">0.50</td>
+          <td class="num">213.25</td>
+          <td class="num">208.02</td>
+          <td class="num">459.11</td>
+          <td class="num p95">503.76</td>
+          <td class="num">930.24</td>
+          <td class="num">930.24</td>
+        </tr>
+      
+        <tr>
+          <td><code>grp_transactional</code></td>
+          <td class="num">0.51</td>
+          <td class="num">233.67</td>
+          <td class="num">215.20</td>
+          <td class="num">496.77</td>
+          <td class="num p95">562.97</td>
+          <td class="num">984.08</td>
+          <td class="num">984.08</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_01_post_login</code></td>
+          <td class="num">0.00</td>
+          <td class="num">239.46</td>
+          <td class="num">228.01</td>
+          <td class="num">492.98</td>
+          <td class="num p95">543.40</td>
+          <td class="num">932.58</td>
+          <td class="num">932.58</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_02_get_users_me</code></td>
+          <td class="num">0.00</td>
+          <td class="num">179.74</td>
+          <td class="num">171.62</td>
+          <td class="num">379.22</td>
+          <td class="num p95">447.15</td>
+          <td class="num">838.67</td>
+          <td class="num">838.67</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_03_get_coupons</code></td>
+          <td class="num">0.51</td>
+          <td class="num">236.46</td>
+          <td class="num">232.18</td>
+          <td class="num">488.61</td>
+          <td class="num p95">527.74</td>
+          <td class="num">930.24</td>
+          <td class="num">930.24</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_04_get_admin_orders</code></td>
+          <td class="num">0.50</td>
+          <td class="num">190.03</td>
+          <td class="num">187.82</td>
+          <td class="num">396.39</td>
+          <td class="num p95">459.18</td>
+          <td class="num">729.67</td>
+          <td class="num">729.67</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_05_post_admin_coupons</code></td>
+          <td class="num">2.08</td>
+          <td class="num">235.72</td>
+          <td class="num">232.31</td>
+          <td class="num">482.87</td>
+          <td class="num p95">525.10</td>
+          <td class="num">943.82</td>
+          <td class="num">943.82</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_06_post_apply_coupon</code></td>
+          <td class="num">0.51</td>
+          <td class="num">275.83</td>
+          <td class="num">273.28</td>
+          <td class="num">578.30</td>
+          <td class="num p95">648.92</td>
+          <td class="num">984.08</td>
+          <td class="num">984.08</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_07_post_coupon_usage</code></td>
+          <td class="num">1.57</td>
+          <td class="num">182.30</td>
+          <td class="num">167.44</td>
+          <td class="num">395.94</td>
+          <td class="num p95">457.45</td>
+          <td class="num">788.55</td>
+          <td class="num">788.55</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_08_delete_admin_coupon</code></td>
+          <td class="num">1.86</td>
+          <td class="num">232.98</td>
+          <td class="num">217.02</td>
+          <td class="num">489.61</td>
+          <td class="num p95">540.03</td>
+          <td class="num">918.01</td>
+          <td class="num">918.01</td>
+        </tr>
+      
+        <tr>
+          <td><code>ep_09_verify_coupon_revoked</code></td>
+          <td class="num">0.00</td>
+          <td class="num">176.26</td>
+          <td class="num">167.01</td>
+          <td class="num">379.24</td>
+          <td class="num p95">448.20</td>
+          <td class="num">742.19</td>
+          <td class="num">742.19</td>
+        </tr>
+      
+        <tr>
+          <td><code>http_req_duration{expected_response:true}</code></td>
+          <td class="num">0.00</td>
+          <td class="num">217.13</td>
+          <td class="num">200.37</td>
+          <td class="num">471.02</td>
+          <td class="num p95">532.45</td>
+          <td class="num">984.08</td>
+          <td class="num">984.08</td>
+        </tr>
+      
+        <tr>
+          <td><code>iteration_duration</code></td>
+          <td class="num">372.05</td>
+          <td class="num">2477.16</td>
+          <td class="num">2848.37</td>
+          <td class="num">4071.04</td>
+          <td class="num p95">4246.45</td>
+          <td class="num">4802.84</td>
+          <td class="num">4802.84</td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+  <h2>2. Visual Percentile Comparison (Median p50 vs. 95th Percentile)</h2>
+  <div class="chart">
+    <div class="legend">
+      <span class="dot" style="background:#2563eb"></span>Median (p50) &nbsp;&nbsp;
+      <span class="dot" style="background:#f59e0b"></span>95th Percentile (p95)
+    </div>
+    <div class="bar-row">
+        <div><code>http_req_duration</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:82.1%"></div>
+          <div class="fill-p50" style="width:30.9%"></div>
+        </div>
+        <div class="num">532.45 ms</div>
+      </div><div class="bar-row">
+        <div><code>grp_auth_heavy</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:79.1%"></div>
+          <div class="fill-p50" style="width:30.0%"></div>
+        </div>
+        <div class="num">513.29 ms</div>
+      </div><div class="bar-row">
+        <div><code>grp_read_heavy</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:77.6%"></div>
+          <div class="fill-p50" style="width:32.1%"></div>
+        </div>
+        <div class="num">503.76 ms</div>
+      </div><div class="bar-row">
+        <div><code>grp_transactional</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:86.8%"></div>
+          <div class="fill-p50" style="width:33.2%"></div>
+        </div>
+        <div class="num">562.97 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_01_post_login</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:83.7%"></div>
+          <div class="fill-p50" style="width:35.1%"></div>
+        </div>
+        <div class="num">543.40 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_02_get_users_me</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:68.9%"></div>
+          <div class="fill-p50" style="width:26.4%"></div>
+        </div>
+        <div class="num">447.15 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_03_get_coupons</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:81.3%"></div>
+          <div class="fill-p50" style="width:35.8%"></div>
+        </div>
+        <div class="num">527.74 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_04_get_admin_orders</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:70.8%"></div>
+          <div class="fill-p50" style="width:28.9%"></div>
+        </div>
+        <div class="num">459.18 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_05_post_admin_coupons</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:80.9%"></div>
+          <div class="fill-p50" style="width:35.8%"></div>
+        </div>
+        <div class="num">525.10 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_06_post_apply_coupon</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:100.0%"></div>
+          <div class="fill-p50" style="width:42.1%"></div>
+        </div>
+        <div class="num">648.92 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_07_post_coupon_usage</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:70.5%"></div>
+          <div class="fill-p50" style="width:25.8%"></div>
+        </div>
+        <div class="num">457.45 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_08_delete_admin_coupon</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:83.2%"></div>
+          <div class="fill-p50" style="width:33.4%"></div>
+        </div>
+        <div class="num">540.03 ms</div>
+      </div><div class="bar-row">
+        <div><code>ep_09_verify_coupon_revoked</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:69.1%"></div>
+          <div class="fill-p50" style="width:25.7%"></div>
+        </div>
+        <div class="num">448.20 ms</div>
+      </div><div class="bar-row">
+        <div><code>http_req_duration{expected_response:true}</code></div>
+        <div class="track">
+          <div class="fill-p95" style="width:82.1%"></div>
+          <div class="fill-p50" style="width:30.9%"></div>
+        </div>
+        <div class="num">532.45 ms</div>
+      </div>
+  </div>
+</div>
+</body>
+</html>

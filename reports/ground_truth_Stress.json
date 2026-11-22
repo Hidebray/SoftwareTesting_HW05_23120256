@@ -1,0 +1,340 @@
+{
+  "source_file": "D:\\Project\\Software Testing\\Homework\\Week05\\raw-logs\\23120256_Stress_20261121.csv",
+  "detected_format": "k6_csv",
+  "total_raw_csv_rows": 1801175,
+  "total_http_requests": 152463,
+  "duration_seconds": 254,
+  "average_rps": 600.248,
+  "peak_1s_rps": 1278,
+  "http_req_duration_ms": {
+    "count": 152463,
+    "min": 0.0,
+    "avg": 47.563,
+    "med": 31.635,
+    "p90": 110.3,
+    "p95": 146.013,
+    "p99": 269.887,
+    "max": 592.84
+  },
+  "iteration_duration_ms": {
+    "count": 17239,
+    "min": 574.694,
+    "avg": 1272.094,
+    "med": 1242.982,
+    "p90": 1736.652,
+    "p95": 1895.98,
+    "p99": 2125.472,
+    "max": 2396.238
+  },
+  "status_distribution": {
+    "200": 132542,
+    "400": 2673,
+    "401": 3,
+    "403": 9,
+    "404": 17236
+  },
+  "expected_response_false_count": 0,
+  "expected_response_false_rate_pct": 0.0,
+  "server_5xx_or_network_errors": 0,
+  "server_5xx_error_rate_pct": 0.0,
+  "checks": {
+    "total": 152463,
+    "passed": 152463,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "details": {
+      "admin/orders: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "coupon-usage: status is 200": {
+        "pass": 14563,
+        "fail": 0
+      },
+      "coupons: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "create-coupon: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "delete-coupon: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "lockout attempt #1: returns 401 or 403": {
+        "pass": 3,
+        "fail": 0
+      },
+      "lockout attempt #2: returns 401 or 403": {
+        "pass": 3,
+        "fail": 0
+      },
+      "lockout attempt #3: returns 401 or 403": {
+        "pass": 3,
+        "fail": 0
+      },
+      "lockout attempt #4: returns 401 or 403": {
+        "pass": 3,
+        "fail": 0
+      },
+      "login: JWT issued": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "login: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "users/me: status is 200": {
+        "pass": 17236,
+        "fail": 0
+      },
+      "verify-revoked: returns 404": {
+        "pass": 17236,
+        "fail": 0
+      }
+    }
+  },
+  "per_group_type_ms": {
+    "auth": {
+      "count": 34484,
+      "min": 0.0,
+      "avg": 40.093,
+      "med": 24.449,
+      "p90": 93.227,
+      "p95": 123.657,
+      "p99": 248.654,
+      "max": 528.296
+    },
+    "read": {
+      "count": 34472,
+      "min": 0.0,
+      "avg": 40.21,
+      "med": 24.581,
+      "p90": 91.99,
+      "p95": 126.654,
+      "p99": 263.67,
+      "max": 527.565
+    },
+    "transactional": {
+      "count": 66271,
+      "min": 0.0,
+      "avg": 56.2,
+      "med": 40.553,
+      "p90": 126.424,
+      "p95": 164.985,
+      "p99": 291.294,
+      "max": 592.84
+    },
+    "verification": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 44.006,
+      "med": 32.579,
+      "p90": 102.862,
+      "p95": 126.296,
+      "p99": 199.705,
+      "max": 523.92
+    }
+  },
+  "per_endpoint_ms": {
+    "delete_admin_coupon": {
+      "count": 17236,
+      "min": 1.031,
+      "avg": 49.837,
+      "med": 37.355,
+      "p90": 111.371,
+      "p95": 139.065,
+      "p99": 223.569,
+      "max": 523.417,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "get_admin_orders": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 37.546,
+      "med": 24.42,
+      "p90": 87.164,
+      "p95": 113.508,
+      "p99": 191.075,
+      "max": 526.006,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "get_coupons": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 42.874,
+      "med": 24.735,
+      "p90": 100.667,
+      "p95": 150.881,
+      "p99": 297.47,
+      "max": 527.565,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "get_users_me": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 37.36,
+      "med": 23.196,
+      "p90": 88.123,
+      "p95": 113.509,
+      "p99": 188.8,
+      "max": 522.291,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_admin_coupons": {
+      "count": 17236,
+      "min": 0.51,
+      "avg": 53.874,
+      "med": 36.418,
+      "p90": 121.207,
+      "p95": 175.808,
+      "p99": 316.521,
+      "max": 527.209,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_apply_coupon": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 71.028,
+      "med": 54.058,
+      "p90": 159.268,
+      "p95": 202.496,
+      "p99": 349.498,
+      "max": 592.84,
+      "status_counts": {
+        "200": 14563,
+        "400": 2673
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_coupon_usage": {
+      "count": 14563,
+      "min": 0.505,
+      "avg": 48.935,
+      "med": 37.885,
+      "p90": 108.692,
+      "p95": 136.083,
+      "p99": 211.657,
+      "max": 528.829,
+      "status_counts": {
+        "200": 14563
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_login": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 42.851,
+      "med": 25.655,
+      "p90": 98.991,
+      "p95": 138.506,
+      "p99": 276.552,
+      "max": 528.296,
+      "status_counts": {
+        "200": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_login_lockout_probe": {
+      "count": 12,
+      "min": 1.581,
+      "avg": 3.646,
+      "med": 3.738,
+      "p90": 4.836,
+      "p95": 4.887,
+      "p99": 4.887,
+      "max": 4.887,
+      "status_counts": {
+        "401": 3,
+        "403": 9
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "verify_coupon_revoked": {
+      "count": 17236,
+      "min": 0.0,
+      "avg": 44.006,
+      "med": 32.579,
+      "p90": 102.862,
+      "p95": 126.296,
+      "p99": 199.705,
+      "max": 523.92,
+      "status_counts": {
+        "404": 17236
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    }
+  },
+  "latency_trend_slices": [
+    {
+      "window": "0s-43s",
+      "samples": 4137,
+      "avg_ms": 3.761,
+      "p95_ms": 7.786,
+      "max_ms": 99.572
+    },
+    {
+      "window": "43s-86s",
+      "samples": 13934,
+      "avg_ms": 7.321,
+      "p95_ms": 16.966,
+      "max_ms": 389.032
+    },
+    {
+      "window": "86s-129s",
+      "samples": 27098,
+      "avg_ms": 16.033,
+      "p95_ms": 53.162,
+      "max_ms": 262.042
+    },
+    {
+      "window": "129s-172s",
+      "samples": 34950,
+      "avg_ms": 49.206,
+      "p95_ms": 123.393,
+      "max_ms": 532.521
+    },
+    {
+      "window": "172s-215s",
+      "samples": 43083,
+      "avg_ms": 69.311,
+      "p95_ms": 168.744,
+      "max_ms": 592.84
+    },
+    {
+      "window": "215s-254s",
+      "samples": 29261,
+      "avg_ms": 68.135,
+      "p95_ms": 197.15,
+      "max_ms": 585.751
+    }
+  ]
+}
