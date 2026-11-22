@@ -31,8 +31,8 @@ if (newAttempts >= 3) {
 - Attempt #3 already received `403 Tài khoản đã bị khóa` because Attempt #1 set `login_attempts = 2` and Attempt #2 set `login_attempts = 4 >= 3`.
 
 ### Screenshots (From Live k6 Runs)
-[KÉO-THẢ ẢNH: proof-image/stress_summary_and_monitor.png]
-[KÉO-THẢ ẢNH: proof-image/spike_summary_and_monitor.png]
+![Stress Summary Lockout Bug](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/stress_summary_and_monitor.png)
+![Spike Summary Lockout Bug](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/spike_summary_and_monitor.png)
 
 ### Suggested Fix
 Change `user.login_attempts + 2` to `user.login_attempts + 1`.
@@ -60,8 +60,8 @@ Applying a percentage coupon (`type = "percent"`, e.g. `10` for 10%) computes `d
 - **Endurance 12m test (`183,756` requests):** Confirmed **3,534 occurrences**.
 
 ### Screenshots (From Live k6 Runs & View 1 HTML Report)
-[KÉO-THẢ ẢNH: proof-image/bug_02_03_load_trace_html.png]
-[KÉO-THẢ ẢNH: proof-image/load_summary_and_monitor.jpg]
+![Load Trace HTML Failing Assertions](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/bug_02_03_load_trace_html.jpg)
+![Load Summary Terminal](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/load_summary_and_monitor.jpg)
 
 ### Suggested Fix
 ```js
@@ -89,8 +89,8 @@ discount_amount = Math.floor((total_amount * coupon.discount_value) / 100);
 - **Load test (`23120256_Load_20261121.csv`):** Boundary rows `RED-13` (`300000`) and `RED-14` (`500000`) triggered **27 false HTTP 400 rejections** (`strict_gt = 27`).
 
 ### Screenshots (From Live k6 Load Run & View 1 HTML Report)
-[KÉO-THẢ ẢNH: proof-image/bug_02_03_load_trace_html.png]
-[KÉO-THẢ ẢNH: proof-image/load_summary_and_monitor.jpg]
+![Load Trace HTML Failing Assertions](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/bug_02_03_load_trace_html.jpg)
+![Load Summary Terminal](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/load_summary_and_monitor.jpg)
 
 ### Suggested Fix
 Change `if (total_amount > coupon.min_order_amount)` to `if (total_amount >= coupon.min_order_amount)`.
@@ -118,8 +118,8 @@ Under high concurrency (Stress up to 200 VUs, Spike 10→180 VUs) and 12-minute 
 | Spike (10→180 VUs, 2m40s) | 4,570 | 275.83 | 273.28 | **648.92** | 810.12 | 984.08 |
 
 ### Screenshots (From Live k6 Spike HTML Report & Endurance Summary)
-[KÉO-THẢ ẢNH: proof-image/bug_04_spike_aggregate_html.png]
-[KÉO-THẢ ẢNH: proof-image/endurance_summary.jpg]
+![Spike Aggregate HTML Bottleneck](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/bug_04_spike_aggregate_html.png)
+![Endurance Summary Terminal](https://raw.githubusercontent.com/Hidebray/SoftwareTesting_HW05_23120256/master/proof-image/endurance_summary.jpg)
 
 ### Suggested Fix
 1. Enable SQLite WAL mode (`PRAGMA journal_mode = WAL; PRAGMA busy_timeout = 5000;`) in `database.js`.

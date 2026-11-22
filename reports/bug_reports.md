@@ -99,5 +99,10 @@
 ---
 
 ## Bằng Chứng Trang GitHub Issues
+- **Public GitHub Issues Page:** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues)
+  - **Issue #1 (`BUG-HW05-01`):** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/1](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/1) (`bug`, `high-priority`)
+  - **Issue #2 (`BUG-HW05-02`):** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/2](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/2) (`bug`, `critical`)
+  - **Issue #3 (`BUG-HW05-03`):** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/3](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/3) (`bug`, `medium-priority`)
+  - **Issue #4 (`BUG-HW05-04`):** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/4](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues/4) (`performance`, `high-priority`)
 - **Danh sách 4 Issues đã đăng:** `../proof-image/github_issues_list.png`
 - **Chi tiết Issue (có đính kèm ảnh minh chứng):** `../proof-image/github_issue_detail.png`
