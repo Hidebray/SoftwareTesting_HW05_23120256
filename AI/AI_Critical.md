@@ -4,13 +4,13 @@
 |-------|-------|
 | **Project / Task** | HW05 — Performance Testing on EShop REST Backend API (k6) |
 | **Conversation ID** | `89514c5d-040c-46ef-81e7-9c9044e488b9` |
-| **Assessment Date** | `2026-11-21` |
+| **Assessment Date** | `2026-11-22` |
 | **Language** | Vietnamese |
-| **Exchanges analyzed** | `8` user inputs, `35` AI responses, `52` tool calls |
+| **Exchanges analyzed** | `29` user inputs, `130+` AI responses, `160+` tool calls |
 | **Source completeness** | `COMPLETE` |
 
 ---
 
 ## Assessment
 
-Trong phiên làm việc gồm 8 lượt trao đổi (102 bước hợp lệ và 52 lượt gọi công cụ), AI (`Gemini 4 Neon (Medium)`) hỗ trợ đọc đề bài HW05 cùng mã nguồn `eshop-sut` (`server.js`, `database.js`) để nhận diện đặc thù kỹ thuật, lập kế hoạch `PLAN.md`, triển khai Phase 0 (cây thư mục, 3 tập CSV, `seed_sut.js`, `reset_sut.ps1`, `00_hardware_and_environment.md`, cài `k6 v2.4.0`), tạo commit Git đầu tiên và dựng giao diện HTML minh họa luồng Agent Skill. Đầu ra của AI không được chấp nhận thụ động mà chịu sự điều hướng liên tục từ sinh viên: yêu cầu tránh hai luồng nghiệp vụ đã dùng trong nhóm, đề xuất xây dựng Agent Skill trước để áp dụng ngược cho bài làm, bổ sung phần khởi tạo cấu trúc dự án, áp đặt cơ chế chờ duyệt trước khi thực thi và buộc AI dừng lại để sinh viên tự chụp ảnh bằng chứng. Nhật ký ghi nhận nhiều lỗi kỹ thuật buộc AI sửa và thử lại: lệnh `git log` thất bại khi thư mục chưa khởi tạo Git, một tác vụ quét thư mục bị hủy, lệnh `winget install Grafana.k6` sai mã gói trước khi đổi sang `GrafanaLabs.k6`, script `seed_sut.js` hai lần gặp lỗi HTTP 500 khi nâng quyền trước khi nạp đủ 33 tài khoản và 20 đơn hàng ở lần sửa thứ ba, và lệnh ghép `&&` bị PowerShell từ chối. Nhìn chung, vai trò AI phù hợp với giai đoạn thiết kế và thiết lập môi trường; tuy nhiên phiên này mới dừng ở hoàn tất Phase 0 và đề xuất Phase 1, chưa có bằng chứng kiểm chứng cho các kịch bản k6 hay phân tích log sau đó.
+Trong bài tập HW05 với `k6`, AI (`Gemini 4 Neon` và subagent `Gemini Flash`) hỗ trợ tốt việc thiết kế kịch bản, xây dựng Agent Skill `performance-tester` và phân tích log, nhưng vẫn bộc lộ nhiều sai sót, thiên lệch và khoảng trống buộc con người kiểm duyệt. Ở giai đoạn thiết kế, AI ban đầu viết skill gắn cứng vào `k6` làm giảm tính tái sử dụng, đưa `BUG-05` ngoài phạm vi bảo mật vào báo cáo, đề xuất script tái hiện thay vì lấy bằng chứng trực tiếp từ phiên chạy k6, và sinh lỗi trong `seed_sut.js` lẫn `reset_sut.ps1` (bỏ sót tiến trình IPv6 khiến dữ liệu seed bị xóa chồng). Ở Task 2, khi chỉ đọc trích đoạn raw log, `Gemini Flash` bị thiên lệch cửa sổ ngữ cảnh nên đảo ngược độ trễ Stress thấp hơn Load, chọn nhầm endpoint chậm nhất, đặt ngưỡng Spike lệch 10,6 lần thực tế, và ảo giác các công nghệ không tồn tại như `bcrypt`, connection pool 30–50 và PostgreSQL `autovacuum` dù SUT dùng SQLite và mật khẩu plaintext. Nguyên nhân là AI thiếu ngữ cảnh toàn cục và hay suy diễn theo khuôn mẫu phổ biến thay vì kiểm chứng trên log đầy đủ và mã nguồn thật. Từ đó, nguyên tắc cộng tác mình rút ra là luôn kiểm duyệt từng cổng (Human-in-the-Loop): dùng AI tăng tốc tạo nháp, nhưng mọi chỉ số hiệu năng phải kiểm chứng bằng script Ground-Truth trên log gốc và mọi tối ưu phải đối chiếu trực tiếp với mã nguồn trước khi chấp nhận.
