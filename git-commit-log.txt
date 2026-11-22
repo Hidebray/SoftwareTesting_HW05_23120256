@@ -1,4 +1,25 @@
-﻿commit c00debcd7e6ff3d76c01cc3581166a43373f22cd
+﻿commit b832073573b6ae00ac8e03ebf2671cc90c6dc1b1
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-23 00:16:04 +0700
+
+    docs(final): add YouTube demo link, finalize 095/100 self-assessment, and rebuild Main Report PDF
+
+ .gitignore                   |   1 +
+ README.md                    |  26 +++++++++++++-------------
+ reports/HW05_Main_Report.md  |   4 ++--
+ reports/HW05_Main_Report.pdf | Bin 2063232 -> 2063999 bytes
+ 4 files changed, 16 insertions(+), 15 deletions(-)
+
+commit 1e86c34cfad8a3d3b3af57e0da7f567400a67732
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 18:03:08 +0700
+
+    chore(git): refresh git-commit-log.txt
+
+ git-commit-log.txt | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+commit c00debcd7e6ff3d76c01cc3581166a43373f22cd
 Author: Hidebray <daihiep10092005@gmail.com>
 Date:   2026-11-22 18:03:07 +0700
 
