@@ -1,0 +1,203 @@
+﻿commit 92434718bea950df50b92d111a7f9f37560d5f85
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 17:44:01 +0700
+
+    docs(report): assemble Main Report MD+PDF, AI Audit/Critique PDFs, README summary, and OBS recording scripts
+
+ AI/AI_Audit.md               | 2059 +++++++++++++++++++++++++++++++++++++++++-
+ AI/AI_Audit.pdf              |  Bin 0 -> 190241 bytes
+ AI/AI_Critical.md            |    6 +-
+ AI/AI_Critical.pdf           |  Bin 0 -> 74580 bytes
+ README.md                    |   81 +-
+ VIDEO_RECORDING_SCRIPT.md    |  137 +++
+ reports/HW05_Main_Report.md  |  239 +++++
+ reports/HW05_Main_Report.pdf |  Bin 0 -> 2063232 bytes
+ scripts/export_pdfs.py       |  254 ++++++
+ 9 files changed, 2700 insertions(+), 76 deletions(-)
+
+commit 12b3520a5ff71575d62697ec682a7f8b813a075d
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 17:29:47 +0700
+
+    docs(cpt): add Task 3 Continuous Performance Testing proposal (G9.6) and verified Skill v1.1 reuse demo
+
+ reports/04_task3_continuous_performance_testing.md |  114 ++
+ skill-demo/23120256_SkillDemo_ProductImport.js     |  244 +++
+ skill-demo/DEMO_SCRIPT_GUIDE.md                    |   22 +
+ skill-demo/data/products_demo.csv                  |    7 +
+ skill-demo/report/ground_truth_skill_demo.json     |  244 +++
+ skill-demo/report/ground_truth_skill_demo.md       |   48 +
+ skill-demo/report/index.html                       |  282 ++++
+ skill-demo/report/skill_demo_raw.jtl               | 1633 ++++++++++++++++++++
+ 8 files changed, 2594 insertions(+)
+
+commit e157965dbc614f71e533a05670fc29fff926283c
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 17:25:32 +0700
+
+    docs(task2): complete AI raw-log analysis, misinterpretation hunt, feasibility audit, and upgrade skill to v1.1
+
+ ...task2_ai_analysis_and_misinterpretation_hunt.md | 82 ++++++++++++++++++++++
+ skills/performance-tester/SKILL.md                 |  5 +-
+ .../references/adapters/jmeter_adapter.md          |  1 +
+ .../references/adapters/k6_adapter.md              | 12 ++--
+ .../references/optimization_audit_rubric.md        |  4 ++
+ .../references/workload_modeling_guide.md          |  1 +
+ .../resources/k6/report_view1_trace.js             |  1 +
+ .../resources/k6/report_view3_aggregate.js         |  1 +
+ .../resources/report_template.md                   |  1 +
+ .../scripts/convert_k6_to_jtl.py                   |  1 +
+ 10 files changed, 104 insertions(+), 5 deletions(-)
+
+commit 22edbe0143b662cc78696f615b77870a896f89ac
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 17:18:09 +0700
+
+    docs(bugs): publish 4 labeled GitHub Issues with live proof screenshots and archive GitHub evidence
+
+ proof-image/github_issue_detail.png    | Bin 0 -> 220584 bytes
+ proof-image/github_issues_list.png     | Bin 0 -> 190149 bytes
+ reports/bug_reports.md                 |   5 +
+ reports/github_issues_ready_to_post.md |  16 ++--
+ scripts/publish_github_issues.py       | 167 +++++++++++++++++++++++++++++++++
+ 5 files changed, 180 insertions(+), 8 deletions(-)
+
+commit af848d3e8aa916ed66e479e36517312e209f035b
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 16:52:12 +0700
+
+    test(endurance): add 12-min soak test results, hardware threshold telemetry, and 4 runtime-verified bug reports
+
+ README.md                                     |      2 +-
+ html-reports/endurance-soak-report/index.html |    336 +
+ proof-image/bug_02_03_load_trace_html.jpg     |    Bin 0 -> 89664 bytes
+ proof-image/bug_04_spike_aggregate_html.png   |    Bin 0 -> 72817 bytes
+ proof-image/endurance_mid_monitor.jpg         |    Bin 0 -> 93013 bytes
+ proof-image/endurance_summary.jpg             |    Bin 0 -> 94977 bytes
+ raw-logs/23120256_Endurance_20261122.jtl      | 183757 +++++++++++++++++++++++
+ reports/02_endurance_threshold_report.md      |     54 +
+ reports/bug_reports.md                        |    103 +
+ reports/endurance_resource_log.csv            |     25 +
+ reports/github_issues_ready_to_post.md        |    127 +
+ reports/ground_truth_Endurance.json           |    302 +
+ reports/ground_truth_Endurance.md             |     53 +
+ scripts/monitor_node_resources.ps1            |     56 +
+ scripts/run_endurance.ps1                     |     63 +
+ test-plans/23120256_Endurance_20261122.js     |    301 +
+ 16 files changed, 185178 insertions(+), 1 deletion(-)
+
+commit 7f187ed81ccedf6565ec1ad2ce63d67c8b7ecd59
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 16:16:39 +0700
+
+    test(execution): archive verified Load, Stress, Spike JTL logs, 3 HTML reports, ground-truth metrics, and 6 raw screenshots
+
+ .gitignore                                      |      3 +
+ html-reports/load-trace-report/index.html       |    242 +
+ html-reports/spike-aggregate-report/index.html  |    336 +
+ html-reports/stress-dashboard-report/index.html |     23 +
+ proof-image/load_peak_tool_and_monitor.jpg      |    Bin 0 -> 88775 bytes
+ proof-image/load_summary_and_monitor.jpg        |    Bin 0 -> 98717 bytes
+ proof-image/spike_peak_tool_and_monitor.png     |    Bin 0 -> 95967 bytes
+ proof-image/spike_summary_and_monitor.png       |    Bin 0 -> 101931 bytes
+ proof-image/stress_peak_tool_and_monitor.png    |    Bin 0 -> 74537 bytes
+ proof-image/stress_summary_and_monitor.png      |    Bin 0 -> 87479 bytes
+ raw-logs/23120256_Load_20261121.jtl             |  14815 ++
+ raw-logs/23120256_Spike_20261121.jtl            |  40446 ++++++
+ raw-logs/23120256_Stress_20261121.jtl           | 152464 +++++++++++++++++++++
+ reports/ground_truth_Load.json                  |    342 +
+ reports/ground_truth_Load.md                    |     53 +
+ reports/ground_truth_Spike.json                 |    336 +
+ reports/ground_truth_Spike.md                   |     56 +
+ reports/ground_truth_Stress.json                |    340 +
+ reports/ground_truth_Stress.md                  |     56 +
+ 19 files changed, 209512 insertions(+)
+
+commit ef8982102e61e68ca5d6f51f2602ab4e799c527e
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-21 22:36:56 +0700
+
+    feat(spike): add Spike test plan 23120256_Spike_20261121.js (View 3 Aggregate HTML + lockout probe)
+
+ test-plans/23120256_Spike_20261121.js | 364 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 364 insertions(+)
+
+commit 20e12c2fe5f65c85237c5c453273843407320da1
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-21 22:36:56 +0700
+
+    feat(stress): add Stress test plan 23120256_Stress_20261121.js (View 2 Web Dashboard + lockout probe)
+
+ test-plans/23120256_Stress_20261121.js | 336 +++++++++++++++++++++++++++++++++
+ 1 file changed, 336 insertions(+)
+
+commit fc833944d2a7a68ef9768dfbf646509cc567763c
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-21 22:36:56 +0700
+
+    feat(load): add Load test plan 23120256_Load_20261121.js (View 1 Trace HTML), reset fix, and human review log
+
+ reports/01_test_design_and_human_review.md |  62 +++++
+ scripts/reset_sut.ps1                      |  37 ++-
+ test-plans/23120256_Load_20261121.js       | 416 +++++++++++++++++++++++++++++
+ 3 files changed, 506 insertions(+), 9 deletions(-)
+
+commit 0a7bd40b06c29e8992bf0a15d53bd69a4cff0370
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-21 22:25:52 +0700
+
+    feat(skill): build universal tool-agnostic performance-tester Agent Skill v1.0 with adapters and ground-truth log analyzer
+
+ AI/AI_Audit.md                                     | 1197 ++++++++++++++++++++
+ AI/AI_Critical.md                                  |   16 +
+ PLAN.md                                            |   17 +-
+ skills/k6-performance-tester/scripts/.gitkeep      |    0
+ skills/k6-performance-tester/templates/.gitkeep    |    0
+ skills/performance-tester/SKILL.md                 |  119 ++
+ .../references/adapters/jmeter_adapter.md          |   56 +
+ .../references/adapters/k6_adapter.md              |   67 ++
+ .../references/optimization_audit_rubric.md        |   51 +
+ .../references/workload_modeling_guide.md          |   57 +
+ .../resources/k6/report_view1_trace.js             |  176 +++
+ .../resources/k6/report_view3_aggregate.js         |  159 +++
+ .../resources/report_template.md                   |   64 ++
+ .../scripts/analyze_perf_logs.py                   |  491 ++++++++
+ .../scripts/convert_k6_to_jtl.py                   |  141 +++
+ 15 files changed, 2604 insertions(+), 7 deletions(-)
+
+commit 0ab123f3d5adaaa45e9e125b23ba7e9266125074
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-21 21:33:30 +0700
+
+    chore(setup): scaffold Week05 project structure, k6 environment, CSV datasets, hardware proof, and SUT seed/reset scripts
+
+ .gitignore                                         |  14 ++
+ AI/.gitkeep                                        |   0
+ PLAN.md                                            | 258 +++++++++++++++++++++
+ README.md                                          |  52 +++++
+ .../[AI-01] - FIT@HCMUS - AI Agreement_En.docx     | Bin 0 -> 201411 bytes
+ .../[AI-02] - FIT@HCMUS - AI Audit Report_En.docx  | Bin 0 -> 32090 bytes
+ ...AI-03] - FIT@HCMUS - AI Disclosure Form_En.docx | Bin 0 -> 29770 bytes
+ ...] - FIT@HCMUS - AI Reflective Statement_En.docx | Bin 0 -> 30003 bytes
+ ...-05] - FIT@HCMUS - AI Privacy Checklist_En.docx | Bin 0 -> 28862 bytes
+ ... FIT@HCMUS - AI Student Acknowledgement_En.docx | Bin 0 -> 28817 bytes
+ data/coupons.csv                                   |  17 ++
+ data/redemptions.csv                               |  17 ++
+ data/users.csv                                     |  35 +++
+ html-reports/endurance-soak-report/.gitkeep        |   0
+ html-reports/load-trace-report/.gitkeep            |   0
+ html-reports/spike-aggregate-report/.gitkeep       |   0
+ html-reports/stress-dashboard-report/.gitkeep      |   0
+ proof-image/.gitkeep                               |   0
+ proof-image/hardware_dxdiag.jpg                    | Bin 0 -> 94695 bytes
+ raw-logs/.gitkeep                                  |   0
+ reports/00_hardware_and_environment.md             |  55 +++++
+ requirement/2026.HW05.Performance Testing_En.pdf   | Bin 0 -> 492695 bytes
+ scripts/reset_sut.ps1                              |  78 +++++++
+ scripts/seed_sut.js                                | 168 ++++++++++++++
+ skill-demo/data/.gitkeep                           |   0
+ skill-demo/report/.gitkeep                         |   0
+ skills/k6-performance-tester/scripts/.gitkeep      |   0
+ skills/k6-performance-tester/templates/.gitkeep    |   0
+ test-plans/.gitkeep                                |   0
+ 29 files changed, 694 insertions(+)
