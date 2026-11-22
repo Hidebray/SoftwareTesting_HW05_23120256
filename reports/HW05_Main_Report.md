@@ -7,8 +7,8 @@
 > **Hệ thống kiểm thử (SUT):** EShop REST Backend API ([https://github.com/ttbhanh/eshop-sut](https://github.com/ttbhanh/eshop-sut))  
 > **Công cụ kiểm thử:** Grafana `k6 v2.4.0` *(Bonus Tool)* + Windows Task Manager + Universal Raw-Log Analyzer (`analyze_perf_logs.py`)  
 > **Public GitHub Repository:** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256](https://github.com/Hidebray/SoftwareTesting_HW05_23120256)  
-> **Video Demo Chính (YouTube Unlisted, ≥ 6 phút):** `[TBD — Chờ cập nhật sau khi quay OBS]`  
-> **Video Demo Agent Skill (YouTube Unlisted):** `[TBD — Chờ cập nhật sau khi quay OBS]`
+> **Video Demo Chính (YouTube Unlisted, ≥ 6 phút):** [https://youtu.be/bVsE9-UECbU](https://youtu.be/bVsE9-UECbU)  
+> **Video Demo Agent Skill (Mục 7):** *Không quay video riêng (đã tự trừ 5/10 điểm tại tiêu chí Agent Skills — Self-Assessed Grade: `095 / 100`)*
 
 ---
 

@@ -10,24 +10,24 @@
 > **Workflow kiểm thử:** **Coupon Campaign, Discount Redemption & Order Monitoring** *(Pool A FR-02/FR-04 + Pool B FR-09 + Pool C FR-17/FR-18 — 0% trùng lặp nhóm)*  
 > **Public GitHub Repository:** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256](https://github.com/Hidebray/SoftwareTesting_HW05_23120256)  
 > **GitHub Issues (4 Lỗi Thực Nghiệm):** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues](https://github.com/Hidebray/SoftwareTesting_HW05_23120256/issues)  
-> **Video Demo Chính (YouTube Unlisted, ≥ 6 phút):** `[TBD — Chờ cập nhật sau khi quay OBS]`  
-> **Video Demo Agent Skill (YouTube Unlisted):** `[TBD — Chờ cập nhật sau khi quay OBS]`
+> **Video Demo Chính (YouTube Unlisted, ≥ 6 phút):** [https://youtu.be/bVsE9-UECbU](https://youtu.be/bVsE9-UECbU)  
+> **Video Demo Agent Skill (Mục 7):** *Không quay video riêng (đã tự trừ 5/10 điểm ở tiêu chí Agent Skills; vẫn nộp đủ Skill `v1.1` và bằng chứng chạy thực tế end-to-end tại `skill-demo/`)*
 
 ---
 
 ## 1. Bảng Tự Đánh Giá (Self-Assessment Table — Mục 15)
 
-> *Ghi chú công tâm: Bảng dưới phản ánh trạng thái hiện tại trước khi bổ sung 2 link YouTube Unlisted (`77/100` — lưu ý Mục 11/17 yêu cầu đủ 2 video trước khi nộp chính thức để đạt `100/100` + điểm bonus k6).*
+| No. | Criteria | Grade | Self-Assessed Grade |
+|:---:|---|:---:|:---:|
+| 1 | Task 1 — Load testing *(kèm Endurance, Hardware, Bug Report, Video Demo)* | 30 | **30** |
+| 2 | Task 1 — Stress testing | 20 | **20** |
+| 3 | Task 1 — Spike testing | 20 | **20** |
+| 4 | Task 2 — AI analysis + misinterpretation hunt (with correct values from raw logs) | 10 | **10** |
+| 5 | Task 3 — Continuous Performance Testing proposal (G9.6) | 10 | **10** |
+| 6 | Agent Skills *(trừ 5đ do không quay video demo riêng cho Skill theo Mục 7)* | 10 | **5** |
+| | **Total** | **100** | **095** |
 
-| No. | Criteria | Grade | Self-Assessed Grade *(Hiện tại — chưa gắn 2 video)* | Mục tiêu sau khi gắn 2 video |
-|:---:|---|:---:|:---:|:---:|
-| 1 | Task 1 — Load testing *(kèm Endurance, Hardware, Bug Report, Demo Video)* | 30 | 22 | 30 |
-| 2 | Task 1 — Stress testing | 20 | 15 | 20 |
-| 3 | Task 1 — Spike testing | 20 | 15 | 20 |
-| 4 | Task 2 — AI analysis + misinterpretation hunt (with correct values from raw logs) | 10 | 10 | 10 |
-| 5 | Task 3 — Continuous Performance Testing proposal (G9.6) | 10 | 10 | 10 |
-| 6 | Agent Skills | 10 | 5 | 10 |
-| | **Total** | **100** | **77** | **100** |
+> **Tên file nộp bài chuẩn:** `23120256_HW05_AI_Performance_095.zip`
 
 ---
 
@@ -67,7 +67,7 @@
 - **AI Audit & AI Critique (MD + PDF):** [AI/AI_Audit.md](AI/AI_Audit.md) ([PDF](AI/AI_Audit.pdf)) | [AI/AI_Critical.md](AI/AI_Critical.md) ([PDF](AI/AI_Critical.pdf))
 - **Agent Skill (`v1.1`):** [skills/performance-tester/SKILL.md](skills/performance-tester/SKILL.md)
 - **Git Commit Log:** [git-commit-log.txt](git-commit-log.txt)
-- **Demo Videos (YouTube Unlisted):** *(Cập nhật sau khi quay OBS theo [VIDEO_RECORDING_SCRIPT.md](VIDEO_RECORDING_SCRIPT.md))*
+- **Demo Video Chính (YouTube Unlisted, ≥ 6 phút):** [https://youtu.be/bVsE9-UECbU](https://youtu.be/bVsE9-UECbU) *(k6 + Task Manager cùng khung hình, thuyết minh Tiếng Việt)*
 
 ---
 

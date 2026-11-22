@@ -14,4 +14,5 @@ __pycache__/
 
 # Large raw k6 CSVs (>100MB GitHub limit) are kept locally & archived via 1:1 raw .jtl logs
 raw-logs/*.csv
+*.zip
 
