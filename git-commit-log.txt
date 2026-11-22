@@ -1,4 +1,23 @@
-﻿commit 13b0db6c9a2e2a6c77269b1acfdb65401691a9ac
+﻿commit c00debcd7e6ff3d76c01cc3581166a43373f22cd
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 18:03:07 +0700
+
+    fix(ai): align wording ('hai nhóm') in AI_Critical.md and re-export PDF
+
+ AI/AI_Critical.md  |   2 +-
+ AI/AI_Critical.pdf | Bin 64566 -> 64563 bytes
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 9613920ad0194a6a0848706f9003af9ff87703b2
+Author: Hidebray <daihiep10092005@gmail.com>
+Date:   2026-11-22 18:01:01 +0700
+
+    chore(git): refresh git-commit-log.txt
+
+ git-commit-log.txt | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+commit 13b0db6c9a2e2a6c77269b1acfdb65401691a9ac
 Author: Hidebray <daihiep10092005@gmail.com>
 Date:   2026-11-22 18:01:00 +0700
 
