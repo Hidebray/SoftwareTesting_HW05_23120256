@@ -1,0 +1,244 @@
+{
+  "source_file": "D:\\Project\\Software Testing\\Homework\\Week05\\skill-demo\\report\\skill_demo_raw.csv",
+  "detected_format": "k6_csv",
+  "total_raw_csv_rows": 22082,
+  "total_http_requests": 1632,
+  "duration_seconds": 26,
+  "average_rps": 62.769,
+  "peak_1s_rps": 88,
+  "http_req_duration_ms": {
+    "count": 1632,
+    "min": 0.51,
+    "avg": 16.876,
+    "med": 12.354,
+    "p90": 33.998,
+    "p95": 44.005,
+    "p99": 71.589,
+    "max": 178.744
+  },
+  "iteration_duration_ms": {
+    "count": 272,
+    "min": 527.118,
+    "avg": 605.624,
+    "med": 594.237,
+    "p90": 673.018,
+    "p95": 709.682,
+    "p99": 811.748,
+    "max": 845.99
+  },
+  "status_distribution": {
+    "200": 1632
+  },
+  "expected_response_false_count": 0,
+  "expected_response_false_rate_pct": 0.0,
+  "server_5xx_or_network_errors": 0,
+  "server_5xx_error_rate_pct": 0.0,
+  "checks": {
+    "total": 2176,
+    "passed": 2176,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "details": {
+      "bulk-import: inserted 3 products": {
+        "pass": 272,
+        "fail": 0
+      },
+      "bulk-import: status is 200": {
+        "pass": 272,
+        "fail": 0
+      },
+      "create-product: status is 200": {
+        "pass": 272,
+        "fail": 0
+      },
+      "delete-product: status is 200": {
+        "pass": 272,
+        "fail": 0
+      },
+      "login: status is 200": {
+        "pass": 272,
+        "fail": 0
+      },
+      "products: returns array": {
+        "pass": 272,
+        "fail": 0
+      },
+      "products: status is 200": {
+        "pass": 272,
+        "fail": 0
+      },
+      "update-product: status is 200": {
+        "pass": 272,
+        "fail": 0
+      }
+    }
+  },
+  "per_group_type_ms": {
+    "auth": {
+      "count": 272,
+      "min": 0.661,
+      "avg": 12.486,
+      "med": 7.166,
+      "p90": 26.433,
+      "p95": 33.532,
+      "p99": 100.333,
+      "max": 132.156
+    },
+    "read": {
+      "count": 272,
+      "min": 0.51,
+      "avg": 17.88,
+      "med": 15.224,
+      "p90": 36.407,
+      "p95": 43.039,
+      "p99": 72.273,
+      "max": 79.147
+    },
+    "transactional": {
+      "count": 1088,
+      "min": 1.507,
+      "avg": 17.722,
+      "med": 12.873,
+      "p90": 35.597,
+      "p95": 45.916,
+      "p99": 68.965,
+      "max": 178.744
+    }
+  },
+  "per_endpoint_ms": {
+    "delete_product_id": {
+      "count": 272,
+      "min": 2.118,
+      "avg": 13.007,
+      "med": 10.147,
+      "p90": 24.308,
+      "p95": 29.226,
+      "p99": 47.233,
+      "max": 83.484,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "get_products": {
+      "count": 272,
+      "min": 0.51,
+      "avg": 17.88,
+      "med": 15.224,
+      "p90": 36.407,
+      "p95": 43.039,
+      "p99": 72.273,
+      "max": 79.147,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_bulk_import": {
+      "count": 272,
+      "min": 7.636,
+      "avg": 30.079,
+      "med": 25.06,
+      "p90": 53.207,
+      "p95": 59.813,
+      "p99": 87.501,
+      "max": 178.744,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_login": {
+      "count": 272,
+      "min": 0.661,
+      "avg": 12.486,
+      "med": 7.166,
+      "p90": 26.433,
+      "p95": 33.532,
+      "p99": 100.333,
+      "max": 132.156,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "post_products": {
+      "count": 272,
+      "min": 1.79,
+      "avg": 13.627,
+      "med": 9.612,
+      "p90": 28.289,
+      "p95": 35.262,
+      "p99": 45.343,
+      "max": 107.704,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    },
+    "put_product_id": {
+      "count": 272,
+      "min": 1.507,
+      "avg": 14.176,
+      "med": 9.691,
+      "p90": 26.449,
+      "p95": 33.941,
+      "p99": 59.247,
+      "max": 152.442,
+      "status_counts": {
+        "200": 272
+      },
+      "server_5xx_count": 0,
+      "server_5xx_rate_pct": 0.0
+    }
+  },
+  "latency_trend_slices": [
+    {
+      "window": "0s-5s",
+      "samples": 212,
+      "avg_ms": 10.826,
+      "p95_ms": 26.684,
+      "max_ms": 55.179
+    },
+    {
+      "window": "5s-10s",
+      "samples": 398,
+      "avg_ms": 15.516,
+      "p95_ms": 43.199,
+      "max_ms": 86.347
+    },
+    {
+      "window": "10s-15s",
+      "samples": 376,
+      "avg_ms": 20.757,
+      "p95_ms": 55.191,
+      "max_ms": 164.226
+    },
+    {
+      "window": "15s-20s",
+      "samples": 396,
+      "avg_ms": 16.17,
+      "p95_ms": 39.007,
+      "max_ms": 83.484
+    },
+    {
+      "window": "20s-25s",
+      "samples": 246,
+      "avg_ms": 19.589,
+      "p95_ms": 49.592,
+      "max_ms": 178.744
+    },
+    {
+      "window": "25s-26s",
+      "samples": 4,
+      "avg_ms": 11.165,
+      "p95_ms": 14.681,
+      "max_ms": 14.857
+    }
+  ]
+}
