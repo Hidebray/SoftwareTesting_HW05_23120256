@@ -62,3 +62,4 @@
 - Mermaid Flowchart (`flowchart TD`).
 - Statistical `p95` regression detection formula.
 - Trade-off analysis (Cost vs. Coverage, False Alarms vs. False Negatives).
+

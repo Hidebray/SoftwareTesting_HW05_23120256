@@ -157,3 +157,4 @@ export function buildAggregateHtmlReport(data, meta = {}) {
 </body>
 </html>`;
 }
+

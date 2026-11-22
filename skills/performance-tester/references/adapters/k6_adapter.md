@@ -14,10 +14,13 @@ Load this adapter during **Phase 3 (Implementation)** and **Phase 4 (Execution)*
    - **Stress:** Stepwise stages ramping past capacity (e.g., `20 -> 50 -> 100 -> 150 -> 200 -> 0`).
    - **Spike:** Low baseline → sharp 10s surge → short hold → fast drop → baseline recovery.
    - **Endurance (Soak):** Short ramp-up → 10–15m sustained constant VUs → ramp-down.
-3. **Request Tagging & Custom Metrics:**
-   - Pass `{ tags: { group_type: 'auth|read|transactional|verification', endpoint: '<name>' } }` to every `http.*()` call.
-   - Define per-group `Trend` metrics (`auth_duration`, `read_duration`, `tx_duration`) and per-endpoint `Trend` + `Counter` metrics so `handleSummary(data)` can build rich aggregate tables.
-4. **Expected Status Handling (Preventing False Error Inflation):**
+3. **Request Tagging, URL Cardinality Guard & Custom Metrics:**
+   - Pass `{ tags: { name: '<METHOD /route/:id>', group_type: 'auth|read|transactional|verification', endpoint: '<name>' } }` to every `http.*()` call.
+   - **High-Cardinality Guard (v1.1):** Whenever a URL contains dynamic path parameters (e.g., `DELETE /api/admin/coupons/${id}`), **ALWAYS** supply a static `tags: { name: 'DELETE /api/admin/coupons/:id' }` so k6 does not generate `>100,000` unique metric time series and bloat RAM during Stress/Endurance runs!
+   - Define per-group `Trend` metrics (`grp_auth_heavy`, `grp_read_heavy`, `grp_transactional`) and per-endpoint `Trend` metrics (`ep_*`) so `handleSummary(data)` can build rich aggregate tables.
+4. **Dual-Stack Reset Hygiene on Local Hosts (v1.1):**
+   - When resetting a local Node.js/Express SUT between runs on Windows, match both IPv4/IPv6 TCP listeners (`netstat -ano`) AND process command-line (`Win32_Process`) rather than relying solely on `Get-NetTCPConnection`, preventing zombie processes from re-running `initDatabase()` mid-seed.
+5. **Expected Status Handling (Preventing False Error Inflation):**
    - For intentional negative/verification probes (e.g., `404` after deletion, `401`/`403` lockout probe), pass `responseCallback: http.expectedStatuses(404)` (or `http.expectedStatuses(401, 403)`) on that specific request so k6's `http_req_failed` accurately reflects **unexpected** failures while assertions still verify exact status codes!
 
 ---
@@ -65,3 +68,4 @@ Before running full Load/Stress/Spike, always dry-run with minimal VUs:
 ```powershell
 k6 run --vus 2 --iterations 2 test-plans/<script>.js
 ```
+

@@ -55,3 +55,4 @@ Check the SUT source code for these recurring traps before generating scripts:
 | **Unbounded In-Memory State** | Node/JVM RSS memory grows linearly with iterations and never drops | Measure RSS every 2 min during Endurance/Soak test and file a Memory Leak defect |
 | **Unindexed Growing Tables** | Read/validation latency degrades steadily across a 10–15 min Soak test | Log `p95` per time window to prove $O(N)$ full-table-scan degradation |
 | **Negative Test Misclassification** | Intentional `400`/`401`/`403`/`404` checks inflate global `error_rate` | Configure tool-level expected status codes or separate `server_5xx_rate` from `business_4xx_rate` |
+

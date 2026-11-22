@@ -17,12 +17,15 @@ When an LLM is asked to read raw performance logs (k6 CSV or JMeter `.jtl`) dire
 | **M-05** | **Average RPS vs. Peak RPS Confusion** | Dividing total requests by full test duration (including ramp-up/down) understates the real peak load during Stress/Spike bursts. | Compute 1-second time-bucket throughput to report both **Average RPS** and **Peak 1s RPS**. |
 | **M-06** | **Unit Confusion (ms vs. s vs. µs)** | Mixing milliseconds in raw CSV with seconds displayed in CLI summaries. | Verify raw unit specification (`ms` in both k6 CSV `http_req_duration` and JMeter `elapsed`). |
 | **M-07** | **Averaging Percentiles Across Scenarios** | Taking the arithmetic mean of `p95` across endpoints or runs (statistically invalid). | Always recompute percentiles from pooled raw latency samples. |
+| **M-08** | **Over-Alarming on Cold-Start Handshake (`http_req_blocked`) (v1.1)** | Treating the first VU's one-time TCP setup (`~20 ms`) as systemic socket/pool exhaustion while subsequent Keep-Alive requests have `0 ms` blocked time. | Inspect steady-state `http_req_blocked` median/p95 and verify `0` `ECONNREFUSED` errors across the full log. |
 
 ---
 
 ## 2. Optimization Feasibility Rubric (Feasible vs. Hallucinated)
 
 Every optimization recommended by AI MUST be audited against the **actual codebase, database engine, runtime, and observed bottleneck**:
+
+> **DBMS & Auth Verification Gate (v1.1):** Before accepting *any* AI optimization mentioning `bcrypt`/`argon2`, connection pools (`pg-pool`/`HikariCP`), `autovacuum_vacuum_scale_factor`, `statement_timeout`, or `RETURNING *`, **explicitly check `package.json` / `database.*` / auth handlers** — LLMs strongly default to assuming PostgreSQL + bcrypt even when the SUT uses embedded SQLite + plaintext/simple auth!
 
 ### Criteria for `FEASIBLE`
 1. **Stack-Accurate:** Applies directly to the real tech stack found in the repository (e.g., `PRAGMA journal_mode = WAL;` and `PRAGMA busy_timeout = 5000;` for SQLite3; `CREATE INDEX` on an actually unindexed query column; clearing an actually leaking in-memory map).
@@ -49,3 +52,4 @@ When proposing a CPT model in CI/CD, address all four trade-off axes:
 2. **False Alarms (CI Runner Noise)** vs. **False Negatives (Missed Regressions)** → solve via rolling baselines (last 5 `main` runs), dual thresholds (e.g., `> +15%` AND `> +20ms` absolute delta), warm-up exclusion, and automatic 1x retry confirmation before failing a build.
 3. **Environment Parity** → compare shared cloud runners (cheap, noisy) vs. dedicated self-hosted perf runners (stable, higher cost).
 4. **Baseline Drift** → guard against slow creep ("death by 1000 cuts" where each PR adds +3% latency) by comparing against both the rolling 5-run window and the last tagged release baseline.
+

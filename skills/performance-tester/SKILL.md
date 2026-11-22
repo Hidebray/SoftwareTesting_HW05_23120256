@@ -9,9 +9,11 @@ description: >-
   feasibility auditing, and Continuous Performance Testing (CPT) architecture.
 ---
 
-# Performance Tester Agent Skill
+# Performance Tester Agent Skill (v1.1)
 
 A universal, **tool-agnostic** engineering protocol for planning, executing, verifying, and auditing backend API performance tests. Grounded in the **ISTQB Performance Testing Syllabus**, **Little's Law**, and the **RED / USE observability methods**, this skill separates core methodology from execution tooling via pluggable adapters.
+
+> **v1.1 Upgrades (Field-Validated Lessons):** Added URL high-cardinality grouping guard (preventing `>100k` metric time series), dual-stack (IPv4/IPv6) local SUT reset hygiene, expected-status error taxonomy (`5xx` vs. intentional `4xx`), and DBMS-hallucination verification rules.
 
 ---
 
@@ -117,3 +119,4 @@ Read [optimization_audit_rubric.md](./references/optimization_audit_rubric.md) b
    - Statistical `p95` regression detection using rolling baselines, relative + absolute delta guards, and auto-retry confirmation to control CI noise.
    - Explicit trade-off analysis balancing compute/developer-wait cost against false alarms and false negatives.
 3. **Iterative Skill Feedback:** Record newly discovered pitfalls back into `references/` so future engagements benefit automatically.
+

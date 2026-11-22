@@ -174,3 +174,4 @@ export function buildTraceHtmlReport(data, meta = {}) {
 </body>
 </html>`;
 }
+
