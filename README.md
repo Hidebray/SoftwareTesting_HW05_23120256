@@ -8,7 +8,7 @@
 > **Hệ thống kiểm thử (SUT):** [EShop Backend API (`eshop-sut/backend`)](https://github.com/ttbhanh/eshop-sut)  
 > **Công cụ kiểm thử:** Grafana k6 *(Bonus Tool)*  
 > **Workflow kiểm thử:** **Coupon Campaign, Discount Redemption & Order Monitoring** *(Pool A FR-02/FR-04 + Pool B FR-09 + Pool C FR-17/FR-18)*  
-> **Public GitHub Repository:** *(Sẽ cập nhật sau khi push)*  
+> **Public GitHub Repository:** [https://github.com/Hidebray/SoftwareTesting_HW05_23120256](https://github.com/Hidebray/SoftwareTesting_HW05_23120256)  
 > **Video Demo Chính (YouTube Unlisted, ≥ 6 phút):** *(Sẽ cập nhật ở Phase 3)*  
 > **Video Demo Agent Skill (YouTube Unlisted):** *(Sẽ cập nhật ở Phase 6)*
 
